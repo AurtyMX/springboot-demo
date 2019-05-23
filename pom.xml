@@ -54,6 +54,21 @@
             <optional>true</optional>
         </dependency>
 
+        <!--componnet index to startup be faster-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-indexer</artifactId>
+            <version>5.0.7.RELEASE</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!--jsr330 annotation　for DI-->
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
