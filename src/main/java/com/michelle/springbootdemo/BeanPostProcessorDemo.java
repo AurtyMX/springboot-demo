@@ -14,6 +14,8 @@ public class BeanPostProcessorDemo implements BeanPostProcessor {
     @Autowired
     private ApplicationContext context;
     @Autowired
+    private BeanB beanB;
+    @Autowired
     /**
      * 因为aop processor也是使用procesor实现，所以被直接引用的bean没法被processor回调
      * 启动日志会有说明：Bean 'beanFactoryDemo' of type [com.michelle.springbootdemo.BeanFactoryDemo] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
