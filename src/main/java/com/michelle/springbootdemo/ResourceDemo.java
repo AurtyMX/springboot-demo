@@ -2,7 +2,9 @@ package com.michelle.springbootdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -131,11 +133,44 @@ public class ResourceDemo {
     /**
      * 可获取
      */
-    @PostConstruct
+//    @PostConstruct
     public void test9() throws IOException {
         ResourceLoader loader = new DefaultResourceLoader();
 //        Resource resource = loader.getResource("classpath:*.properties");
         Resource resource = context.getResource("classpath:*.properties");
         System.out.println("resource is " + resource.getURL());
     }
+
+    /**
+     * 可获取,返回根目录target/classes
+     */
+//    @PostConstruct
+    public void test10() throws IOException {
+        Enumeration<URL> resource = ResourceDemo.class.getClassLoader().getResources("");
+        System.out.println("resource is " + resource.nextElement().getPath());
+    }
+
+    /**
+     * 可获取,只返回一个resource
+     */
+//    @PostConstruct
+    public void test11() throws IOException {
+        ResourcePatternResolver loader = new PathMatchingResourcePatternResolver();
+        Resource[] resource = loader.getResources("classpath:*.properties");
+        System.out.println("resource is " + resource[0].getURL());
+    }
+
+
+    /**
+     * 可获取,只返回一个resource
+     */
+//    @PostConstruct
+    public void test12() throws IOException {
+        ResourcePatternResolver loader = new PathMatchingResourcePatternResolver();
+        Resource[] resource = loader.getResources("classpath:*.properties");
+        System.out.println("resource is " + resource[0].getURL());
+    }
+
+
+
 }

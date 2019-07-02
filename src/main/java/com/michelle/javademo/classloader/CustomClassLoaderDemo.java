@@ -1,4 +1,4 @@
-package com.michelle.javademo;
+package com.michelle.javademo.classloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

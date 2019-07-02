@@ -1,4 +1,4 @@
-package com.michelle.javademo;
+package com.michelle.javademo.classloader;
 
 import com.sun.javafx.binding.Logging;
 import org.apache.commons.lang.StringUtils;
