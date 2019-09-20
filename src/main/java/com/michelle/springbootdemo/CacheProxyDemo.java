@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CacheProxyDemo {
 
-    @Cacheable("CacheProxyDemo")
+//    @Cacheable("CacheProxyDemo")
     public String test1(int i) {
         System.out.println("CacheProxyDemo test 1 start...");
         return "test" + i;

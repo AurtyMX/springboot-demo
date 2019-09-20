@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.EnableLoadTimeWeaving;
@@ -14,11 +15,9 @@ import org.springframework.stereotype.Indexed;
 
 import javax.annotation.Resource;
 
-@EnableAspectJAutoProxy
-@Indexed
+//@Indexed
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
 @EnableSpringConfigured
-@EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED)
 @EnableCaching
 public class SpringbootDemoApplication implements CommandLineRunner {
     @Autowired
@@ -36,8 +35,8 @@ public class SpringbootDemoApplication implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootDemoApplication.class, args);
-        ConfigurableBeanDemo configurableBeanDemo = new ConfigurableBeanDemo();
+        ApplicationContext context = SpringApplication.run(SpringbootDemoApplication.class, args);
+        ConfigurableBeanDemo configurableBeanDemo = context.getBean(ConfigurableBeanDemo.class);
         System.out.println("configurable:" + configurableBeanDemo.getBeanB());
     }
 
@@ -52,9 +51,9 @@ public class SpringbootDemoApplication implements CommandLineRunner {
 //        beanFactoryDemo.demo3();
     }
 
-    @Bean
-    public InstrumentationLoadTimeWeaver loadTimeWeaver() throws Throwable {
-        InstrumentationLoadTimeWeaver loadTimeWeaver = new InstrumentationLoadTimeWeaver();
-        return loadTimeWeaver;
-    }
+//    @Bean
+//    public InstrumentationLoadTimeWeaver loadTimeWeaver() throws Throwable {
+//        InstrumentationLoadTimeWeaver loadTimeWeaver = new InstrumentationLoadTimeWeaver();
+//        return loadTimeWeaver;
+//    }
 }
