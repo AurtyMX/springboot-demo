@@ -14,7 +14,7 @@ import org.springframework.instrument.classloading.ReflectiveLoadTimeWeaver;
  * 否则会报错，该参数指定织入时使用的agent即InstrumentationSavingAgent
  */
 @Configuration
-@EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED)
+//@EnableLoadTimeWeaving(aspectjWeaving = EnableLoadTimeWeaving.AspectJWeaving.ENABLED)
 public class AppLoadTimeWeavingConfigurer /** implements LoadTimeWeavingConfigurer **/{
 //    @Override
 //    public LoadTimeWeaver getLoadTimeWeaver() {

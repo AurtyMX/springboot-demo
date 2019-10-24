@@ -1,14 +1,12 @@
 package com.michelle.springbootdemo;
 
+import com.michelle.SpringbootDemoApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @RunWith(SpringRunner.class)

@@ -1,5 +1,6 @@
-package com.michelle.springbootdemo;
+package com.michelle;
 
+import com.michelle.springbootdemo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,6 +33,8 @@ public class SpringbootDemoApplication implements CommandLineRunner {
     private AspectDemo2 aspectDemo2;
     @Resource
     private CacheProxyDemo cacheProxyDemo;
+    @Resource
+    private WebConfig webConfig;
 
 
     public static void main(String[] args) {
@@ -47,6 +50,8 @@ public class SpringbootDemoApplication implements CommandLineRunner {
         cacheProxyDemo.test1(0);
         cacheProxyDemo.test2(0);
         cacheProxyDemo.test1(0);
+        System.out.println(webConfig.getRelation_type());
+        System.out.println(webConfig.getRelationtest());
 //        beanFactoryDemo.demo1();
 //        beanFactoryDemo.demo3();
     }
