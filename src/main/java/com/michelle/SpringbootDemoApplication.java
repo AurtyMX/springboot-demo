@@ -1,5 +1,6 @@
 package com.michelle;
 
+import com.michelle.springaopdemo.MultipleAroundDemo3;
 import com.michelle.springbootdemo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +21,10 @@ import javax.annotation.Resource;
 @SpringBootApplication // same as @Configuration @EnableAutoConfiguration @ComponentScan
 @EnableSpringConfigured
 @EnableCaching
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class SpringbootDemoApplication implements CommandLineRunner {
+    @Resource
+    private MultipleAroundDemo3 multipleAroundDemo3;
     @Autowired
     private BeanFactoryDemo beanFactoryDemo;
     @Autowired
@@ -35,6 +39,8 @@ public class SpringbootDemoApplication implements CommandLineRunner {
     private CacheProxyDemo cacheProxyDemo;
     @Resource
     private WebConfig webConfig;
+    @Resource
+    private ApplicationContext applicationContext;
 
 
     public static void main(String[] args) {
@@ -45,13 +51,14 @@ public class SpringbootDemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        beanPostProcessorDemo.initial();
-        aspectDemo2.test1();
-        cacheProxyDemo.test1(0);
-        cacheProxyDemo.test2(0);
-        cacheProxyDemo.test1(0);
-        System.out.println(webConfig.getRelation_type());
-        System.out.println(webConfig.getRelationtest());
+//        beanPostProcessorDemo.initial();
+//        aspectDemo2.test1();
+//        cacheProxyDemo.test1(0);
+//        cacheProxyDemo.test2(0);
+//        cacheProxyDemo.test1(0);
+//        System.out.println(webConfig.getRelation_type());
+//        System.out.println(webConfig.getRelationtest());
+        System.out.println(multipleAroundDemo3.test());
 //        beanFactoryDemo.demo1();
 //        beanFactoryDemo.demo3();
     }

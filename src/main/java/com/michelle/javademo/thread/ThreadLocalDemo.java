@@ -3,6 +3,7 @@ package com.michelle.javademo.thread;
 /**
  * threadlocal lifecycle is connected thread, if thread is collected by gc and threadlocal will also collected.
  * we often use thread pool that thread in it always keeping alive maybe cause memory leak
+ * example:https://veerasundar.com/blog/2010/11/java-thread-local-how-to-use-and-code-sample/
  */
 public class ThreadLocalDemo {
     public static void main(String[] args) {
